@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using UserManagement.Backend.Data;
+using UserManagement.Backend.Interfaces;
+using UserManagement.Backend.Services;
 
 namespace UserManagement.Backend
 {
@@ -22,7 +24,7 @@ namespace UserManagement.Backend
       builder.Services.AddControllers();
       builder.Services.AddEndpointsApiExplorer();
       builder.Services.AddSwaggerGen();
-
+      builder.Services.AddScoped<IEmployeeAction, EmployeeAction>();
       var app = builder.Build();
 
       if (app.Environment.IsDevelopment())
