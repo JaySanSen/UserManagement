@@ -4,9 +4,11 @@ using UserManagement.Backend.DTOs;
 
 namespace UserManagement.Backend.Interfaces
 {
-  public interface IEmployeeAction{
+  public interface IEmployeeAction
+  {
     Task<EmployeeDTO> GetEmployeeByID(int id);
     Task<IEnumerable<EmployeeDTO>> GetAllEmployees();
     Task CreateEmployee(EmployeeDTO employeeDTO);
+    Task<string> UpdateEmployee(int id, EmployeeDTO employeeDTO);
   }
 }
