@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -20,6 +21,8 @@ namespace UserManagement.Backend.Contollers
     }
     [HttpGet]
     [Route("", Name = "GetAllEmployees")]
+    [Authorize]
+
     public async Task<IActionResult> GetAllEmployees()
     {
       Log.Information("Getting all employees");
